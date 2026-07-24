@@ -1,3 +1,310 @@
-body { font-family: sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
-.comando { background: white; padding: 15px; margin-bottom: 10px; border-left: 5px solid #2ecc71; border-radius: 4px; }
-h1 { color: #2c3e50; }
+/* ==========================
+   CONFIGURACION GLOBAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #050816,
+        #0f172a,
+        #1e293b
+    );
+
+    overflow-x:hidden;
+
+    color:white;
+
+    position:relative;
+
+    padding:50px;
+}
+
+/* ==========================
+   LUCES DE FONDO
+========================== */
+
+.circulo{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    z-index:-1;
+}
+
+.uno{
+
+    width:350px;
+    height:350px;
+
+    background:#00f5ff;
+
+    top:-100px;
+    left:-100px;
+}
+
+.dos{
+
+    width:400px;
+    height:400px;
+
+    background:#22c55e;
+
+    right:-150px;
+    bottom:-150px;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header{
+
+    text-align:center;
+
+    margin-bottom:80px;
+}
+
+header h1{
+
+    font-size:5rem;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00f5ff,
+        #22c55e,
+        #ffffff
+    );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:brillo 5s infinite linear;
+}
+
+@keyframes brillo{
+
+    0%{
+        background-position:0%;
+    }
+
+    100%{
+        background-position:300%;
+    }
+}
+
+header p{
+
+    color:#cbd5e1;
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:1.15rem;
+}
+
+/* ==========================
+   CONTENEDOR
+========================== */
+
+#contenedor{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(340px,1fr));
+
+    gap:40px;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.comando{
+
+    position:relative;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(20px);
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.15);
+
+    transition:0.6s;
+}
+
+/* Borde luminoso */
+
+.comando::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    padding:2px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00f5ff,
+        #22c55e,
+        transparent
+    );
+
+    -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+}
+
+.comando:hover{
+
+    transform:
+    translateY(-18px)
+    scale(1.03);
+
+    box-shadow:
+    0 25px 60px rgba(0,245,255,.25);
+}
+
+/* NUMERO */
+
+.numero{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    color:rgba(255,255,255,.08);
+
+    position:absolute;
+
+    top:15px;
+    right:25px;
+}
+
+/* TITULO */
+
+.comando h2{
+
+    font-size:2.2rem;
+
+    margin-bottom:20px;
+
+    color:#ffffff;
+}
+
+/* TEXTO */
+
+.comando p{
+
+    color:#d6deea;
+
+    line-height:1.9;
+
+    font-size:1rem;
+}
+
+/* EFECTO DE LUZ */
+
+.comando::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    background:
+    radial-gradient(
+        rgba(0,245,255,.35),
+        transparent
+    );
+
+    top:-120px;
+    right:-120px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    text-align:center;
+
+    margin-top:80px;
+
+    color:#94a3b8;
+
+    font-size:1rem;
+}
+
+footer strong{
+
+    color:#22c55e;
+
+    letter-spacing:2px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    body{
+        padding:25px;
+    }
+
+    header h1{
+        font-size:3rem;
+    }
+
+    .comando h2{
+        font-size:1.8rem;
+    }
+}
